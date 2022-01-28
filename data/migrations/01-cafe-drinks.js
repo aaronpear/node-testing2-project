@@ -3,7 +3,6 @@ exports.up = async function(knex) {
         .createTable('drinks', table => {
             table.increments('drink_id');
             table.text('drink_name', 128)
-                .unique()
                 .notNullable();
             table.text('drink_description', 256)
                 .notNullable();

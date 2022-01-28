@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
     Drinks.getAll()
         .then(drinks => {
-            res.json(drinks);
+            res.status(200).json(drinks);
         })
         .catch(err => {
             next(err);
@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
 router.post('/', validateDrink, (req, res, next) => {
     Drinks.addDrink(req.body)
         .then(drink => {
-            res.json(drink);
+            res.status(201).json(drink);
         })
         .catch(err => {
             next(err);
